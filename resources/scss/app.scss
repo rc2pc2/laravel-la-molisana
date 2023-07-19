@@ -1,1 +1,125 @@
-@import "~bootstrap/scss/bootstrap";
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: $secondaryFontColor;
+}
+
+.flex{
+    display: flex;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+header{
+    display: flex;
+    flex-direction: column;
+
+    div#brand img{
+        height: 110px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: $sectionsMargin;
+    }
+
+    nav#top-navbar ul{
+        @include flex();
+        margin-bottom: $sectionsMargin;
+
+        li{
+            padding: 1rem;
+            font-size: .9rem;
+            font-weight: 600;
+            // background: $acc;
+            transition: background-color 1s ease;
+
+            &.active,
+            &:hover{
+                background-color: $accentBg;
+            }
+        }
+    }
+}
+
+main{
+    background-image: url('../assets/img/fondo-pag-speciali.jpg');
+    color: $primaryColor;
+    padding: 3rem;
+    text-align: center;
+    font-size: .75rem;
+    margin-bottom: $sectionsMargin;
+
+    h1{
+        margin-bottom: $sectionsMargin;
+    }
+
+    div.pasta-products{
+        display: flex;
+        flex-wrap: wrap;
+
+        article{
+            width: calc((100% / 4) - 3px);
+            background-color: white;
+            padding: 1rem;
+            margin-right: 3px;
+            margin-bottom: 3px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+footer{
+    @include flex();
+    background-image: url('../assets/img/footer-montagne-bottom.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    padding-bottom: calc($sectionsMargin * 6);
+
+    &>*{
+        margin-right: 6rem;
+    }
+
+    h2{
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        color: $primaryColor;
+        font-weight: 600;
+        margin-bottom: .85rem;
+    }
+
+    div.footer-brand img{
+        height: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+}
